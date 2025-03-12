@@ -5,7 +5,7 @@ export default function Viewer() {
   const [isClient, setIsClient] = useState<boolean>(false);
   
   // Connect to WebSocket with no send functionality needed for viewer
-  const { text, isConnected, tournament } = useWebSocket(isClient ? 'ws://online-typing.trap.show/api/ws' : '');
+  const { text, isConnected, tournament } = useWebSocket(isClient ? 'wss://online-typing.trap.show/api/ws' : '');
   
   // Set client-side flag after component mounts to avoid SSR issues
   useEffect(() => {

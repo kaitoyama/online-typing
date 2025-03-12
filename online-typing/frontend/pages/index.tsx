@@ -9,7 +9,7 @@ export default function Home() {
   const [localText, setLocalText] = useState<string>('');
   const [playerName, setPlayerName] = useState<string>('');
   const [matchWinner, setMatchWinner] = useState<{ matchId: number, winnerId: number } | null>(null);
-  const { text, isConnected, tournament, sendMessage, updateTournament } = useWebSocket(isClient ? 'ws://online-typing.trap.show/api/ws' : '');
+  const { text, isConnected, tournament, sendMessage, updateTournament } = useWebSocket(isClient ? 'wss://online-typing.trap.show/api/ws' : '');
   
   // Set client-side flag after component mounts to avoid SSR issues
   useEffect(() => {
