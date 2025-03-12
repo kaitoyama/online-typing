@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import { useWebSocket } from '../hooks/useWebSocket';
-import Navigation from '../components/Navigation';
 
 export default function Viewer() {
   const [isClient, setIsClient] = useState<boolean>(false);
