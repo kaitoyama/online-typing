@@ -106,7 +106,7 @@ export default function Viewer() {
                       <div className="flex flex-col items-center">
                         <div className="w-30 h-30 rounded-full overflow-hidden border-2 border-blue-300">
                           <img 
-                            src={"https://q.trap.jp/api/v3/public/icon/"+currentMatch.player1!.id || "https://q.trap.jp/api/v3/public/icon/kaitoyama"} 
+                            src={"https://q.trap.jp/api/v3/public/icon/"+currentMatch.player1!.name || "https://q.trap.jp/api/v3/public/icon/kaitoyama"} 
                             alt={`${currentMatch.player1.id}'s avatar`}
                             className="w-full h-full object-cover"
                             onError={(e) => {e.currentTarget.src = "https://q.trap.jp/api/v3/public/icon/kaitoyama"}}
@@ -134,7 +134,7 @@ export default function Viewer() {
                       <div className="flex flex-col items-center">
                         <div className="w-30 h-30 rounded-full overflow-hidden border-2 border-red-300">
                           <img 
-                            src={"https://q.trap.jp/api/v3/public/icon/"+currentMatch.player2!.id || "https://q.trap.jp/api/v3/public/icon/kaitoyama"} 
+                            src={"https://q.trap.jp/api/v3/public/icon/"+currentMatch.player2!.name || "https://q.trap.jp/api/v3/public/icon/kaitoyama"} 
                             alt={`${currentMatch.player2.id}'s avatar`}
                             className="w-full h-full object-cover"
                             onError={(e) => {e.currentTarget.src = "https://q.trap.jp/api/v3/public/icon/kaitoyama"}}
