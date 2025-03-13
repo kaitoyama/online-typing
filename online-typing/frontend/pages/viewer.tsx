@@ -25,18 +25,18 @@ export default function Viewer() {
     return match.points[playerId] || 0;
   };
   
-  // ポイント表示用の関数（Tailwind対応版）- Modified to always show larger circles
+  // ポイント表示用の関数（Tailwind対応版）- Modified to show even larger circles (1.25x)
   const renderPointIcons = (match: any, playerId?: number) => {
     const points = playerId && match?.points ? (match.points[playerId] || 0) : 0;
     const totalPoints = 2; // 2本先取
 
     return (
-      <div className="flex gap-4 justify-center">
+      <div className="flex gap-5 justify-center">
         {Array.from({ length: totalPoints }).map((_, index) => (
           <div 
             key={index}
-            className={`w-8 h-8 rounded-full border-3 ${
-              index < points ? 'bg-green-500 border-green-700 shadow-md' : 'bg-transparent border-2 border-green-600'
+            className={`w-10 h-10 rounded-full ${
+              index < points ? 'bg-green-500 border-green-700 shadow-md border-3' : 'bg-transparent border-2 border-green-600'
             }`}
           ></div>
         ))}
@@ -94,17 +94,17 @@ export default function Viewer() {
               
               {currentMatch.player1 && currentMatch.player2 ? (
                 <>
-                  {/* Display the match regardless of whether it's a bye match or not */}
-                  <div className="flex flex-row justify-center items-center gap-8">
-                    <div className={`flex-1 p-6 bg-white rounded-lg max-w-80 relative ${isBye(currentMatch.player1.id) ? 'opacity-50' : ''}`}>
-                      <div className="mb-3">
-                        <span className="text-3xl font-bold break-words">{getPlayerDisplayName(currentMatch.player1.id)}</span>
+                  {/* Display the match scaled up by 1.25x */}
+                  <div className="flex flex-row justify-center items-center gap-10">
+                    <div className={`flex-1 p-8 bg-white rounded-lg max-w-96 relative ${isBye(currentMatch.player1.id) ? 'opacity-50' : ''}`}>
+                      <div className="mb-4">
+                        <span className="text-4xl font-bold break-words">{getPlayerDisplayName(currentMatch.player1.id)}</span>
                       </div>
-                      <div className="mb-3">
+                      <div className="mb-4">
                         {renderPointIcons(currentMatch, currentMatch.player1.id)}
                       </div>
                       <div className="flex flex-col items-center">
-                        <div className="w-60 h-60 rounded-full overflow-hidden">
+                        <div className="w-72 h-72 rounded-full overflow-hidden">
                           <img 
                             src={"https://q.trap.jp/api/v3/public/icon/"+currentMatch.player1!.name || "https://q.trap.jp/api/v3/public/icon/kaitoyama"} 
                             alt={`${getPlayerDisplayName(currentMatch.player1.id)}のアバター`}
@@ -115,24 +115,24 @@ export default function Viewer() {
                       </div>
                       {isBye(currentMatch.player1.id) && (
                         <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-70 rounded-lg">
-                          <span className="text-xl text-gray-500 font-bold">不戦勝</span>
+                          <span className="text-2xl text-gray-500 font-bold">不戦勝</span>
                         </div>
                       )}
                     </div>
                     
-                    <div className="w-28 h-28 rounded-full bg-gray-600 flex flex-col justify-center items-center shadow-lg">
-                      <div className="text-white text-4xl font-bold">VS</div>
+                    <div className="w-36 h-36 rounded-full bg-gray-600 flex flex-col justify-center items-center shadow-lg">
+                      <div className="text-white text-5xl font-bold">VS</div>
                     </div>
                     
-                    <div className={`flex-1 p-6 bg-white rounded-lg max-w-80 relative ${isBye(currentMatch.player2.id) ? 'opacity-50' : ''}`}>
-                      <div className="mb-3">
-                        <span className="text-3xl font-bold break-words">{getPlayerDisplayName(currentMatch.player2.id)}</span>
+                    <div className={`flex-1 p-8 bg-white rounded-lg max-w-96 relative ${isBye(currentMatch.player2.id) ? 'opacity-50' : ''}`}>
+                      <div className="mb-4">
+                        <span className="text-4xl font-bold break-words">{getPlayerDisplayName(currentMatch.player2.id)}</span>
                       </div>
-                      <div className="mb-3">
+                      <div className="mb-4">
                         {renderPointIcons(currentMatch, currentMatch.player2.id)}
                       </div>
                       <div className="flex flex-col items-center">
-                        <div className="w-60 h-60 rounded-full overflow-hidden">
+                        <div className="w-72 h-72 rounded-full overflow-hidden">
                           <img 
                             src={"https://q.trap.jp/api/v3/public/icon/"+currentMatch.player2!.name || "https://q.trap.jp/api/v3/public/icon/kaitoyama"} 
                             alt={`${getPlayerDisplayName(currentMatch.player2.id)}のアバター`}
@@ -143,7 +143,7 @@ export default function Viewer() {
                       </div>
                       {isBye(currentMatch.player2.id) && (
                         <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-70 rounded-lg">
-                          <span className="text-xl text-gray-500 font-bold">不戦勝</span>
+                          <span className="text-2xl text-gray-500 font-bold">不戦勝</span>
                         </div>
                       )}
                     </div>
