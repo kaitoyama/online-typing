@@ -95,7 +95,7 @@ export default function Viewer() {
               {currentMatch.player1 && currentMatch.player2 ? (
                 <>
                   {/* Display the match with increased spacing between players */}
-                  <div className="flex flex-row justify-center items-center gap-30">
+                  <div className="flex flex-row justify-center items-center gap-50">
                     <div className={`flex-1 p-8 bg-white rounded-lg max-w-96 relative ${isBye(currentMatch.player1.id) ? 'opacity-50' : ''}`}>
                       <div className="mb-4">
                         <span className="text-4xl font-bold break-words">{getPlayerDisplayName(currentMatch.player1.id)}</span>
@@ -120,8 +120,8 @@ export default function Viewer() {
                       )}
                     </div>
                     
-                    <div className="w-36 h-36 rounded-full bg-gray-600 flex flex-col justify-center items-center shadow-lg">
-                      <div className="text-white text-5xl font-bold">VS</div>
+                    <div className="w-36 h-36 flex flex-col justify-center items-center">
+                      <div className="text-white text-5xl font-bold"></div>
                     </div>
                     
                     <div className={`flex-1 p-8 bg-white rounded-lg max-w-96 relative ${isBye(currentMatch.player2.id) ? 'opacity-50' : ''}`}>
