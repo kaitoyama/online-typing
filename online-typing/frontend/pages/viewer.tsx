@@ -94,8 +94,8 @@ export default function Viewer() {
               
               {currentMatch.player1 && currentMatch.player2 ? (
                 <>
-                  {/* Display the match scaled up by 1.25x */}
-                  <div className="flex flex-row justify-center items-center gap-10">
+                  {/* Display the match with increased spacing between players */}
+                  <div className="flex flex-row justify-center items-center gap-30">
                     <div className={`flex-1 p-8 bg-white rounded-lg max-w-96 relative ${isBye(currentMatch.player1.id) ? 'opacity-50' : ''}`}>
                       <div className="mb-4">
                         <span className="text-4xl font-bold break-words">{getPlayerDisplayName(currentMatch.player1.id)}</span>
