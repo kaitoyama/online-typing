@@ -148,15 +148,6 @@ export default function Viewer() {
                       )}
                     </div>
                   </div>
-
-                  {/* Show bye match notification below the match */}
-                  {isCurrentMatchBye && (
-                    <div className="mt-6 text-2xl text-gray-600 p-4 bg-gray-100 rounded-lg">
-                      {isBye(currentMatch.player1.id) ? 
-                        `${getPlayerDisplayName(currentMatch.player2.id)}の不戦勝です` : 
-                        `${getPlayerDisplayName(currentMatch.player1.id)}の不戦勝です`}
-                    </div>
-                  )}
                 </>
               ) : (
                 <div className="text-2xl text-gray-500 p-8 italic">
